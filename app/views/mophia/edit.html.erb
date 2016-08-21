@@ -1,0 +1,10 @@
+  <div class="contents row">
+    <%= form_tag("/mophia/#{@post.id}", method: :patch ) do %>
+      <h3>
+        編集する
+      </h3>
+      <input placeholder="Movie Link" type="text" name="movie_link" value="<%= @post.movie_link %>" autofocus="true">
+      <textarea cols="30" name="text" placeholder="text" rows="10"><%= @post.text %></textarea>
+      <input type="submit" value="SENT">
+    <% end %>
+  </div>

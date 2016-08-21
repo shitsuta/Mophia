@@ -1,0 +1,9 @@
+<div class="contents row">
+	<%= form_tag('/mophia', method: :post) do %>
+	<h3>Post</h3>
+	<input placeholder="Title" type="text" name="title">
+	<input placeholder="Movie Link" type="text" name="movie_link">
+	<textarea cols="30" name="text" placeholder="question" rows="10"></textarea>
+	<input type="submit" name="SENT">
+	<% end %>
+</div>

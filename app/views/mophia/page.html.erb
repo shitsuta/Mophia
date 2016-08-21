@@ -1,0 +1,33 @@
+
+<% if @post.movie_link != nil then %>
+	<div class="movie">
+		<div id="sample"></div>
+	</div>
+<% end %>
+
+
+
+
+<div class="contents row">
+	<%= form_tag('/mophia/postpage/answer/', method: :post) do %>
+	<h3>Post</h3>
+	<%= hidden_field_tag 'post_id', @post.id %>
+	<textarea cols="30" name="answer" placeholder="Answer" rows="10"></textarea>
+	<input type="submit" name="SENT">
+	<% end %>
+</div>
+
+<div calss="Answer">
+	<% @answers.each do |answer| %>
+		<div class="AnswerText">
+			<%= answer.answer %>
+		</div>
+		<div class="subAnswer">
+			<% answer.sub_answers.each do |an| %>
+				<%= an.subAnswer %>
+				<br>
+			<% end %>
+		</div>
+		<hr>
+	<% end %>
+</div>

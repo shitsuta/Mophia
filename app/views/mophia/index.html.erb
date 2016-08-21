@@ -1,0 +1,47 @@
+<div class="wrap-contents">
+  <div class="left-content">
+    <div class="btn">
+      <a href="#">ENTER</a>
+    </div>
+  </div>
+  <div class="right-content">
+    <div class="btn">
+      <a href="#">ENTER</a>
+    </div> 
+  </div>
+</div>
+
+<div class="main-contents clearfix">
+  <div class="main-left">
+    
+  </div>
+  <div class="main-right">
+        <% @posts.each do |post| %>
+      <div class="Question">
+        <div class="QuestionTitle">
+          <%= link_to post.title, "/mophia/postpage/#{post.id}", method: :get %> 
+        </div>
+        <div class="QuestionText">
+          <%= post.text %>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+    <%= paginate(@posts) %>
+  </div>
+</div>
+
+<!--   <div class="contents row" >
+    <% @posts.each do |post| %>
+      <div class="Question">
+        <div class="QuestionTitle">
+          <%= link_to post.title, "/mophia/postpage/#{post.id}", method: :get %> 
+        </div>
+        <div class="QuestionText">
+          <%= post.text %>
+        </div>
+      </div>
+      <hr>
+    <% end %>
+    <%= paginate(@posts) %>
+  </div> -->

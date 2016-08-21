@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mophia</title>
+    <%= include_gon %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+    <%= csrf_meta_tags %>
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Unica+One::latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+      })();
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header clearfix">
+
+        <div class="nav left">
+          <span class="logo-1"><a href="/"><span></span>Mophia</a></span>
+        </div>
+
+        <div class="nav right">
+          <nav class="g-nav-01">
+            <% if user_signed_in? %>
+              <ul class="clearfix">
+                <li class="user"><a href="/users/<%= current_user.id %>"><span></span><%= current_user.nickname %>'s Page</a></li>
+                 <li class="logout">
+                  <%= link_to destroy_user_session_path, :method => :delete do%>
+                    <span></span>Logout
+                  <% end %>
+                </li>
+                <li class="post"><a class="post" href="/mophia/new"><span></span>Post</a></li>
+              </ul> 
+            <% else %>
+                <ul class="clearfix">
+                  <li class="login"><a href="/users/sign_in"><span></span>Log In</a></li>
+                  <li class="registration"><a href="/users/sign_up"><span></span>Registration</a></li>
+                </ul>
+            <% end %> 
+          </nav>
+        </div>
+
+
+      </header>
+
+      <%= yield %>
+
+      <footer>
+        <p>
+          Copyright Mophia 2016.
+        </p>
+      </footer>
+
+    </div>
+
+
+
+
+
+  </body>
+</html>

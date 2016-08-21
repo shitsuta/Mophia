@@ -1,0 +1,2 @@
+module MophiaHelper
+end
